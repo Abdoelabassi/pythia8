@@ -4,7 +4,7 @@
 ## Compile
 
 ```
-g++ -I/path/to/pythia8/iclude code.cc -o nameit -lpythia8 -L /path/to/pythia8/lib 
+g++ -I/path/to/pythia8/include code.cc -o nameit -lpythia8 -L /path/to/pythia8/lib 
 
 ```
 # Don't forget to add the lib to path env
