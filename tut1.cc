@@ -30,7 +30,7 @@ int main(){
 
 			double p = sqrt(pow(px,2) + pow(py,2) + pow(pz,2));
 
-			std::cout <<  id << "mass: " << mass << "Total momentum: " << p << std::endl;
+			std::cout << "id : " <<  id << " mass: " << mass << " Total momentum: " << p << std::endl;
 		}
 	}
 
