@@ -15,7 +15,7 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/path/to/pythia8/lib
 
 
 ### Install Pythia8
-<a href="https://pythia8.org">Pythia8</a>
+<a href="https://pythia.org">Pythia8</a>
 
 
 
