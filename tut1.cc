@@ -3,11 +3,11 @@
 
 #include <iostream>
 #include "Pythia8/Pythia.h"
-
+using namespace Pythia8;
 int main(){
 
 	int events = 10;
-	Pythia8::Pythia pythia;
+	Pythia pythia;
 	pythia.readString("Beams:idA=2212");
 	pythia.readString("Beams:idB=2212");
 	pythia.readString("Beams:eCM=14.e3");
@@ -19,7 +19,7 @@ int main(){
 		if(!pythia.next()) continue;
 		int entries = pythia.event.size();
 		std::cout << "Event: " << i << std::endl;
-		std::cout << "Event size(): " << entries << std::endl;
+		std::cout << "Event size: " << entries << std::endl;
 
 		for (int j=0; j < entries;j++){
 			int id = pythia.event[j].id();
@@ -30,7 +30,7 @@ int main(){
 
 			double p = sqrt(pow(px,2) + pow(py,2) + pow(pz,2));
 
-			std::cout << "id\n: " << id << "mass:\n " << mass << "Total momentum:\n " << p << std::endl;
+			std::cout <<  id << "mass: " << mass << "Total momentum: " << p << std::endl;
 		}
 	}
 
