@@ -17,6 +17,7 @@ int main(){
 	int id, event, size, pn;
 	double mass, px, py, pz;
 	
+	tree->Branch("id",&id,"id/I");
 	tree->Branch("event",&event, "event/I");
 	tree->Branch("size",&size, "size/I");
 	tree->Branch("nop",&pn, "nop/I");
@@ -45,7 +46,7 @@ int main(){
 		size= entries;
 
 		for (int j=0; j < entries;j++){
-			int id = pythia.event[j].id();
+			id = pythia.event[j].id();
 			pn=j;
 			double mass = pythia.event[j].m();
 			double px = pythia.event[j].px();
