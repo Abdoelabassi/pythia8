@@ -10,7 +10,22 @@
 using namespace Pythia8;
 int main(){
 
-	int events = 30;
+	TFile *output = new TFile("tut3.root","recreate");
+	TTree *tree =  new TTree("tree","tree");
+	
+	//vars to store in the ttree
+	int id, event, size, pn;
+	double mass, px, py, pz;
+	
+	tree->Branch("event",&event, "event/I");
+	tree->Branch("size",&size, "size/I");
+	tree->Branch("nop",&pn, "nop/I");
+	tree->Branch("mass",&mass, "mass/D");
+	tree->Branch("px",&px,"px/D");
+	tree->Branch("py",&py,"py/D");
+	tree->Branch("pz",&pz,"pz/D");
+
+	int events = 1e4;
 	Pythia pythia;
 	pythia.readString("Beams:idA=2212");
 	pythia.readString("Beams:idB=2212");
@@ -26,13 +41,17 @@ int main(){
 		int entries = pythia.event.size();
 		std::cout << "Event: " << i << std::endl;
 		std::cout << "Event size: " << entries << std::endl;
+		event = i;
+		size= entries;
 
 		for (int j=0; j < entries;j++){
 			int id = pythia.event[j].id();
+			pn=j;
 			double mass = pythia.event[j].m();
 			double px = pythia.event[j].px();
 			double py = pythia.event[j].py();
 			double pz = pythia.event[j].pz();
+			tree->Fill();
 			hpz.fill(pz);
 			hmass.fill(mass);
 
@@ -53,6 +72,9 @@ int main(){
 	 hpp.add(hmass);
     	 hpl.plot();
 	 hpp.plot();
+	 
+	 output->Write();
+	 output->Close();
 
 
 
