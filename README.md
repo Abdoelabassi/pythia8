@@ -41,4 +41,4 @@ You can create a Makefile to complile all your source files using make
 <h3>All <em><strong>good-yoi</strong></em></h3>
 
 
-<img src="s.png" alt="shishsi">
+<img style="border-redius:2px;"  src="s.png" alt="shishsi">
